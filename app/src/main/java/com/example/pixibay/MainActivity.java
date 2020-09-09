@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<PixabayResponse> call, Response<PixabayResponse> response) {
                 PixabayResponse pixabayResponse = response.body();
                 List<Hit> hits = pixabayResponse.getHits();
+                adapter = new PixabayAdapter(getApplicationContext(), hits);
                 adapter.addItems(hits);
                 currentPage++;
             }
